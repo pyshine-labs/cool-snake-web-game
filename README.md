@@ -1,5 +1,7 @@
 # Snake Game - Flask Backend
 
+![Snake Game Intro](snake_game_intro.PNG)
+
 A classic Snake game with a modern web stack: Flask backend, JavaScript frontend, and responsive design.
 
 ## Features
