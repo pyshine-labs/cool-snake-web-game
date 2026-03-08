@@ -106,7 +106,7 @@ class SnakeGame {
     }
 
     changeSpeed(speed) {
-        this.engine.state.speed = speed;
+        this.engine.state.speed = 550 - speed;
     }
 
     changeWalls(wallsEnabled) {

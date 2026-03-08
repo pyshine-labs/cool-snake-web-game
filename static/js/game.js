@@ -45,21 +45,14 @@ class GameEngine {
     }
 
     bindEvents() {
-        // Listen for grid toggle
         document.addEventListener('gridToggle', (e) => {
             this.state.gridVisible = e.detail.visible;
         });
-        // Listen for walls toggle
         document.addEventListener('wallsToggle', (e) => {
             this.state.wallsEnabled = e.detail.enabled;
         });
-        // Listen for snake color change
         document.addEventListener('snakeColorChange', (e) => {
             this.snakeColor = e.detail.color;
-        });
-        // Listen for speed change
-        document.addEventListener('speedChange', (e) => {
-            this.state.speed = Math.max(50, 550 - e.detail.speed);
         });
     }
 
