@@ -10,6 +10,8 @@ class UIController {
         this.initSwipeDetection();
         this.initColorPicker();
         this.initVolumeSlider();
+        this.initSpeedSlider();
+        this.initWallsToggle();
         this.initParticleToggle();
         this.bindModalEvents();
     }
@@ -191,6 +193,25 @@ class UIController {
                 icon.className = volume === 0 ? 'fas fa-volume-mute' :
                     volume < 0.5 ? 'fas fa-volume-low' : 'fas fa-volume-high';
             }
+        });
+    }
+
+    initSpeedSlider() {
+        const slider = this.elements.speedSlider;
+        if (!slider) return;
+        slider.addEventListener('input', (e) => {
+            const speed = parseInt(e.target.value);
+            document.dispatchEvent(new CustomEvent('speedChange', { detail: { speed } }));
+        });
+    }
+
+    initWallsToggle() {
+        const toggle = this.elements.wallsToggle;
+        if (!toggle) return;
+        toggle.addEventListener('change', (e) => {
+            const wallsEnabled = e.target.checked;
+            document.dispatchEvent(new CustomEvent('wallsChange', { detail: { wallsEnabled } }));
+            this.showToast(`Wall collision ${wallsEnabled ? 'enabled' : 'disabled'}`, 'info');
         });
     }
 

@@ -21,28 +21,24 @@ class SnakeGame {
                 case 'w':
                 case 'W':
                     e.preventDefault();
-                    if (!this.engine.state.running) this.startGame();
                     this.changeDirection('up');
                     break;
                 case 'ArrowDown':
                 case 's':
                 case 'S':
                     e.preventDefault();
-                    if (!this.engine.state.running) this.startGame();
                     this.changeDirection('down');
                     break;
                 case 'ArrowLeft':
                 case 'a':
                 case 'A':
                     e.preventDefault();
-                    if (!this.engine.state.running) this.startGame();
                     this.changeDirection('left');
                     break;
                 case 'ArrowRight':
                 case 'd':
                 case 'D':
                     e.preventDefault();
-                    if (!this.engine.state.running) this.startGame();
                     this.changeDirection('right');
                     break;
                 case ' ':
@@ -73,6 +69,8 @@ class SnakeGame {
         document.addEventListener('snakeDirection', (e) => this.changeDirection(e.detail.direction));
         document.addEventListener('snakeColorChange', (e) => this.changeSnakeColor(e.detail.color));
         document.addEventListener('volumeChange', (e) => this.changeVolume(e.detail.volume));
+        document.addEventListener('speedChange', (e) => this.changeSpeed(e.detail.speed));
+        document.addEventListener('wallsChange', (e) => this.changeWalls(e.detail.wallsEnabled));
     }
 
     startGame() {
@@ -105,6 +103,14 @@ class SnakeGame {
 
     changeVolume(volume) {
         this.sound.setVolume(volume);
+    }
+
+    changeSpeed(speed) {
+        this.engine.state.speed = speed;
+    }
+
+    changeWalls(wallsEnabled) {
+        this.engine.state.wallsEnabled = wallsEnabled;
     }
 
     openSettings() {
