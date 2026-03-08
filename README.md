@@ -4,6 +4,8 @@
 
 A classic Snake game with a modern web stack: Flask backend, JavaScript frontend, and responsive design.
 
+**[Powered by PyShine](https://pyshine.com/)** - Simple and practical Python tutorials for everyone.
+
 ## Features
 
 - **Full game engine** with snake movement, food generation, collision detection
